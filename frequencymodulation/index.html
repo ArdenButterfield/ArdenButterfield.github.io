@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="static/styles/styles.css">
+	<title>FM Synthesis Demo</title>
+</head>
+<body>
+<div class="column">
+	<div class="header blob">
+		<h1>The sights and sounds of frequency modulation</h1>
+		<div class="play-pause">
+			<button id="play-button" onclick="startPlayback();">Play</button>
+			<button id="pause-button" onclick="pausePlayback();" disabled>Pause</button>
+		</div>
+	</div>
+	<div class="container">
+		<div class="inputs blob">
+			<div class="zone form-zone carrier">
+				<h2>Carrier</h2>
+				<div class="graph-container">
+					<canvas id="carrier-graph"></canvas>
+				</div>
+				<form class="freq-amp-entry">
+					<div class="param">
+						<h3>frequency</h3>
+						<input type="range" class="input-slider" id="carrier_freq" min="0" max="4" value="2" name="carrier_freq" step="0.01" oninput="carrierFreqSliderMoved()">
+						<input type="text" class="input-text" id="carrier_freq_text" name="carrier_freq_text" oninput="carrierFreqTextChanged()">
+					</div>
+					<div class="param">
+						<h3>amplitude</h3>
+						<input type="range" class="input-slider" id="carrier_amp" name="carrier_amp" min="0.0" max="1.0" value="1" step="0.01" oninput="carrierAmpSliderMoved()">
+						<input type="text" class="input-text" id="carrier_amp_text" name="carrier_amp_text" oninput="carrierAmpTextChanged()">
+					</div>
+				</form>
+			</div>
+			<div class="zone form-zone mod">
+				<h2>Modulator</h2>
+				<div class="graph-container">
+					<canvas id="modulator-graph"></canvas>
+				</div>
+				<form class="freq-amp-entry">
+					<div class="param">
+						<h3>frequency</h3>
+						<input type="range" class="input-slider" id="modulator_freq" min="0" max="4" value="2" name="modulator_freq" step="0.01" oninput="modulatorFreqSliderMoved()">
+						<input type="text" class="input-text" id="modulator_freq_text" name="modulator_freq_text" oninput="modulatorFreqTextChanged()">
+					</div>
+					<div class="param">
+						<h3>amplitude</h3>
+						<input type="range" class="input-slider" id="modulator_amp" name="modulator_amp" min="0.0" max="10.0" value="1" step="0.01" oninput="modulatorAmpSliderMoved()">
+						<input type="text" class="input-text" id="modulator_amp_text" name="modulator_amp_text" oninput="modulatorAmpTextChanged()">
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="outputs blob">
+			<div class="zone waveform">
+				<div class="graph-container">
+					<canvas id="waveform-graph"></canvas>
+				</div>
+			</div>
+			<div class="zone spectrum">
+				<form class="spectrum-bounds">
+					<input type="text" class="spectrum-bound" id="lower-spectrum-bound" name="lower-spectrum-bound" oninput="lowerSpectrumBoundsChanged()">
+					<input type="text" class="spectrum-bound" id="upper-spectrum-bound" name="upper-spectrum-bound" oninput="upperSpectrumBoundsChanged()">
+				</form>
+				<div class="graph-container">
+					<canvas width='1500px' height='400px' id="spectrum-graph"></canvas>
+				</div>
+			</div>
+		</div>	
+	</div>
+</div>
+	<script type="text/javascript" src="static/scripts/app.js"></script>
+
+</body>
+</html>
