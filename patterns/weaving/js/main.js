@@ -18,7 +18,7 @@ function draw() {
             if (x % (2 * SQUARE_SIZE) > SQUARE_SIZE) {
                 ellipse(x - (STEP / 2), y + progression - (STEP / 2), circlesize, circlesize);
             } else {
-                ellipse(x, y, circlesize, circlesize);
+                ellipse(x, y + progression, circlesize, circlesize);
 
             }
         }
